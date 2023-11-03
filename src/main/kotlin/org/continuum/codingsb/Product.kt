@@ -6,20 +6,19 @@ import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.OneToMany
-import lombok.Getter
+import lombok.Data
 import lombok.ToString
 
 @Entity
-@Getter
-@ToString(exclude = ["ordersList"])
-class Customer (
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long,
+@Data
+@ToString(exclude = ["itemList"])
+class Product (
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long,
 
     @Column
-    var name: String,
+    val name: String,
 
-    @OneToMany(mappedBy = "customer")
-    val ordersList: List<Orders> = ArrayList<Orders>()
+    @OneToMany(mappedBy = "product")
+    val itemList: List<Item> = ArrayList<Item>()
 )

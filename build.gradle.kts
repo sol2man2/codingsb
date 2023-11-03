@@ -38,12 +38,16 @@ dependencies {
 	testImplementation("org.testcontainers:junit-jupiter")
 	testImplementation("org.testcontainers:postgresql")
 
-
 	testImplementation("io.kotest:kotest-assertions-core-jvm:5.7.2")
 	testImplementation("io.kotest:kotest-runner-junit5-jvm:5.7.2")
 	implementation("io.kotest.extensions:kotest-extensions-spring:1.1.3")
 	testImplementation("io.kotest.extensions:kotest-extensions-testcontainers:2.0.2")
 	testImplementation("io.mockk:mockk-jvm:1.13.8")
+
+	implementation(platform("io.arrow-kt:arrow-stack:1.2.1"))
+
+	implementation("io.arrow-kt:arrow-core")
+	implementation("io.arrow-kt:arrow-fx-coroutines")
 }
 
 tasks.withType<KotlinCompile> {
